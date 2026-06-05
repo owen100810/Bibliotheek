@@ -54,4 +54,60 @@
 </body>
 </html>
 
+<!-- ik kan dit aanpassen --><!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boek Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="detail-page-body">
+
+    <div class="detail-container">
+        <a href="index.html" class="back-btn">⬅ Terug naar Overzicht</a>
+
+        <div class="detail-layout">
+            <div class="detail-cover">
+                <img id="book-cover" src="" alt="Boek Cover">
+            </div>
+
+            <div class="detail-info">
+                <h1 id="book-title">Laden...</h1>
+                <p id="book-author" class="detail-author"></p>
+                
+                <div class="detail-meta">
+                    <p><strong>Uitgever:</strong> <span id="book-publisher"></span></p>
+                    <p><strong>Jaar van uitgave:</strong> <span id="book-year"></span></p>
+                    <p><strong>Status:</strong> <span id="book-status" class="status-badge"></span></p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>📖 Uitgebreide Beschrijving</h3>
+                    <p id="book-description"></p>
+                </div>
+
+                <div class="detail-section" id="audio-section" style="display:none;">
+                    <h3>🎵 Luister naar een Fragment</h3>
+                    <audio id="book-audio" controls>
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                <div class="detail-section">
+                    <h3>⭐ Recensies van Lezers</h3>
+                    <div id="reviews-container" class="reviews-list">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="detail.js"></script>
+</body>
+</html>
+
 <!-- ik kan dit aanpassen -->
