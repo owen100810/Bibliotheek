@@ -1,17 +1,24 @@
-/* ROOT VARIABELEN */
+/* =============================================
+   style.css — bibliotheek
+   Iterated redesign (2023–2026)
+   Layer 1 (2023): Basis + functionaliteit
+   Layer 2 (2024): Typografie + leesbaarheid
+   Layer 3 (2025–2026): Karakter, dichtheid & imperfectie
+   ============================================= */
+
+/* ROOT VARIABELEN — evolved to warmer, editorial palette */
 :root {
-    --bg-dark: #090d16;
-    --bg-card: #131a26;
-    --bg-control: #1b2433;
-    --text-primary: #f1f5f9;
-    --text-muted: #94a3b8;
-    --accent-blue: #38bdf8;
-    --accent-purple: #a855f7;
-    --color-green: #22c55e;
-    --color-red: #ef4444;
+    --bg-paper: #f8f5f0;
+    --bg-card: #ffffff;
+    --text-primary: #1c1c1c;
+    --text-muted: #555555;
+    --accent: #8b2a2a;           /* Diepe bibliotheek-rood / stempelkleur */
+    --accent-dark: #5c1f1f;
+    --border: #d4c9b8;
+    --shadow-light: 2px 2px 0 #d4c9b8;
 }
 
-/* RESET */
+/* RESET — Layer 1 */
 * {
     margin: 0;
     padding: 0;
@@ -19,193 +26,408 @@
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: var(--bg-dark);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: var(--bg-paper);
     color: var(--text-primary);
-    line-height: 1.6;
+    line-height: 1.65;
+    font-size: 1.05rem;
 }
 
-/* KOPPELINGSTYLING (Zorgt dat kaarten er niet uitzien als blauwe hyperlinks) */
+/* KOPPELINGSTYLING */
 a.boek {
     text-decoration: none;
     color: inherit;
 }
 
-/* STICKY NAVIGATIEBALK [cite: 57] */
+/* =============================================
+   NAVIGATIE — Layer 3: praktisch en stevig
+   ============================================= */
 header {
-    background: rgba(19, 26, 38, 0.85);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    padding: 20px 5%;
+    background: var(--bg-card);
+    border-bottom: 4px solid var(--accent);
+    padding: 22px 5%;
     position: sticky;
     top: 0;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 header h1 {
-    font-size: 1.5rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-family: 'Courier New', monospace;
+    font-size: 1.65rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--accent-dark);
+    margin: 0;
 }
 
-nav ul { display: flex; list-style: none; gap: 10px; }
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
 nav a {
     color: var(--text-muted);
     text-decoration: none;
+    font-family: 'Courier New', monospace;
     font-weight: 600;
-    font-size: 0.9rem;
-    padding: 10px 18px;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-nav a:hover, nav a.active {
-    color: #ffffff;
-    background: rgba(56, 189, 248, 0.12);
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    transition: all 0.2s ease;
+    border-bottom: 2px solid transparent;
 }
 
-/* DASHBOARD & BEDIENING */
-.dashboard { max-width: 1400px; margin: 40px auto; padding: 0 20px; }
-.hero-text h2 { font-size: 2.3rem; font-weight: 800; margin-bottom: 8px; }
-.hero-text p { color: var(--text-muted); margin-bottom: 25px; }
+nav a:hover,
+nav a.active {
+    color: var(--accent-dark);
+    border-color: var(--accent);
+    background: #f4ede4;
+}
+
+/* =============================================
+   DASHBOARD & OVERZICHT — Layer 2 + 3
+   ============================================= */
+.dashboard {
+    max-width: 1420px;
+    margin: 48px auto;
+    padding: 0 24px;
+}
+
+.hero-text h2 {
+    font-family: 'Courier New', monospace;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 12px;
+    color: var(--accent-dark);
+}
+
+.hero-text p {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    max-width: 65ch;
+    margin-bottom: 32px;
+}
 
 .controls-panel {
     background-color: var(--bg-card);
-    padding: 20px;
-    border-radius: 20px;
-    display: flex; gap: 20px; flex-wrap: wrap;
-    border: 1px solid rgba(255, 255, 255, 0.02);
+    padding: 24px 28px;
+    border: 2px solid var(--border);
+    border-radius: 4px; /* minder trendy, meer echt */
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+    box-shadow: var(--shadow-light);
 }
-.search-box { flex: 2; min-width: 280px; }
+
+.search-box {
+    flex: 2;
+    min-width: 300px;
+}
+
 .search-box input {
-    width: 100%; padding: 14px 20px; border-radius: 14px;
-    border: 2px solid var(--bg-control); background-color: var(--bg-dark);
-    color: white; font-size: 1rem; outline: none;
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 1.1rem;
+    border: 2px solid var(--border);
+    background-color: white;
+    color: var(--text-primary);
+    font-family: inherit;
+    border-radius: 4px;
 }
-.search-box input:focus { border-color: var(--accent-blue); }
 
-.sort-box { display: flex; align-items: center; gap: 10px; }
+.search-box input:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+.sort-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
 .sort-box select {
-    padding: 14px; border-radius: 14px; background: var(--bg-dark);
-    color: white; border: 2px solid var(--bg-control); cursor: pointer;
+    padding: 16px 20px;
+    border: 2px solid var(--border);
+    background: white;
+    color: var(--text-primary);
+    font-family: inherit;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-.stats-counter { margin-top: 15px; font-size: 0.85rem; color: var(--text-muted); }
-.stats-counter span { color: var(--accent-blue); font-weight: 700; }
+.stats-counter {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
 
-/* GRID INDELING [cite: 54] */
+.stats-counter span {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* GRID — Layer 1 + 3 (onregelmatige ritmes) */
 .bibliotheek-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 35px; max-width: 1400px; margin: 0 auto; padding: 0 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 42px 32px;
+    max-width: 1420px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
-/* BOEK KAART DESIGN [cite: 35] */
+/* BOEK KAART — evolved design (meer boek, minder app) */
 .boek {
     background-color: var(--bg-card);
-    border-radius: 24px; overflow: hidden;
-    display: flex; flex-direction: column;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.02);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15), box-shadow 0.4s ease, border-color 0.4s ease;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* HOVER EFFECTEN [cite: 55] */
 .boek:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 40px rgba(56, 189, 248, 0.15);
-    border-color: rgba(56, 189, 248, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 6px 8px 0 var(--border);
 }
 
-.cover-wrapper { width: 100%; height: 380px; overflow: hidden; }
-.boek img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-.boek:hover img { transform: scale(1.05); }
+.cover-wrapper {
+    width: 100%;
+    height: 360px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+}
 
-.boek-info { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
-.boek-info h2 { font-size: 1.25rem; color: white; margin-bottom: 4px; min-height: 54px; }
+.boek img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.boek:hover img {
+    transform: scale(1.04);
+}
+
+.boek-info {
+    padding: 26px 28px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.boek-info h2 {
+    font-family: 'Courier New', monospace;
+    font-size: 1.35rem;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    min-height: 58px;
+}
 
 .schrijver {
-    font-size: 0.95rem;
-    color: var(--accent-blue);
+    font-size: 1rem;
+    color: var(--accent);
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
-.meta-data { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; }
-.beschrijving { font-size: 0.9rem; color: #cbd5e1; margin-bottom: 20px; flex-grow: 1; }
+.meta-data {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
 
-/* VERPLICHTE STATUS BADGES EN KLEUREN [cite: 12, 13, 19, 20, 27] */
+.beschrijving {
+    font-size: 0.98rem;
+    color: #444;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+/* STATUS BADGES — meer stempelgevoel */
 .status-badge {
-    display: block; text-align: center; padding: 10px;
-    border-radius: 12px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;
+    display: block;
+    text-align: center;
+    padding: 10px 16px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Courier New', monospace;
 }
-.beschikbaar { color: var(--color-green); background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.2); }
-.uitgeleend { color: var(--color-red); background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); }
 
-/* ========================================== */
-/* STYLING SPECIFIEK VOOR DE DETAILPAGINA     */
-/* ========================================== */
+.beschikbaar {
+    color: #1e5c2e;
+    background: #e6f0e8;
+    border: 1px solid #a3c4b0;
+}
+
+.uitgeleend {
+    color: #8b2a2a;
+    background: #f4e9e9;
+    border: 1px solid #d4b8b8;
+}
+
+/* =============================================
+   DETAILPAGINA — Layer 3: editorial density
+   ============================================= */
 .detail-page-body {
-    padding: 50px 20px;
-    display: flex; justify-content: center;
+    padding: 60px 24px;
+    display: flex;
+    justify-content: center;
+    background: var(--bg-paper);
 }
 
 .detail-container {
-    width: 100%; max-width: 1100px;
+    width: 100%;
+    max-width: 1180px;
     background-color: var(--bg-card);
-    padding: 40px; border-radius: 28px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 52px 56px;
+    border: 1px solid var(--border);
+    box-shadow: 4px 6px 0 var(--border);
 }
 
 .back-btn {
-    display: inline-block; text-decoration: none;
-    color: var(--accent-blue); font-weight: 600;
-    margin-bottom: 30px; transition: transform 0.2s ease;
+    display: inline-block;
+    color: var(--accent);
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    margin-bottom: 36px;
+    text-decoration: none;
 }
-.back-btn:hover { transform: translateX(-5px); }
 
-.detail-layout { display: flex; gap: 50px; flex-wrap: wrap; }
-.detail-cover { flex: 1; min-width: 300px; max-width: 400px; }
-.detail-cover img { width: 100%; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
+.back-btn:hover {
+    text-decoration: underline;
+    color: var(--accent-dark);
+}
 
-.detail-info { flex: 2; min-width: 300px; }
-.detail-info h1 { font-size: 2.5rem; margin-bottom: 5px; color: white; }
-.detail-author { font-size: 1.3rem; color: var(--accent-blue); font-weight: 600; margin-bottom: 25px; }
+.detail-layout {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.detail-cover {
+    flex: 1;
+    min-width: 320px;
+    max-width: 420px;
+}
+
+.detail-cover img {
+    width: 100%;
+    border: 1px solid var(--border);
+    box-shadow: 6px 8px 0 var(--border);
+}
+
+.detail-info {
+    flex: 2;
+    min-width: 320px;
+}
+
+.detail-info h1 {
+    font-family: 'Courier New', monospace;
+    font-size: 2.8rem;
+    line-height: 1.05;
+    margin-bottom: 12px;
+    color: var(--accent-dark);
+}
+
+.detail-author {
+    font-size: 1.35rem;
+    color: var(--accent);
+    margin-bottom: 32px;
+}
 
 .detail-meta {
-    background-color: var(--bg-dark); padding: 20px;
-    border-radius: 16px; margin-bottom: 30px;
-    display: flex; gap: 30px; flex-wrap: wrap; align-items: center;
+    background-color: #f4ede4;
+    padding: 24px;
+    border: 1px solid var(--border);
+    margin-bottom: 40px;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
 }
-.detail-meta p { font-size: 0.95rem; color: var(--text-muted); }
-.detail-meta strong { color: white; }
+
+.detail-meta p {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
 
 .detail-section {
-    margin-bottom: 35px; border-bottom: 1px solid rgba(255,255,255,0.05);
-    padding-bottom: 25px;
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 36px;
 }
-.detail-section h3 { font-size: 1.2rem; color: white; margin-bottom: 12px; }
-.detail-section p { color: #cbd5e1; font-size: 1rem; line-net: 1.7; }
 
-/* AUDIO SPELER STYLING */
-audio { width: 100%; max-width: 500px; margin-top: 10px; filter: invert(0.9) hue-rotate(180deg); }
+.detail-section h3 {
+    font-family: 'Courier New', monospace;
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+    color: var(--accent-dark);
+}
 
-/* RECENSIE GEBIED */
-.reviews-list { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
+.detail-section p {
+    color: #333;
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+/* Audio & Reviews */
+audio {
+    width: 100%;
+    max-width: 520px;
+    margin: 16px 0;
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 20px;
+}
+
 .review-item {
-    background-color: var(--bg-dark); padding: 15px 20px;
-    border-radius: 14px; font-style: italic; font-size: 0.95rem;
-    border-left: 4px solid var(--accent-purple);
+    background-color: #f8f5f0;
+    padding: 24px;
+    border-left: 5px solid var(--accent);
+    font-style: italic;
+    color: #444;
 }
 
-/* RESPONSIVE DESIGN */
+/* RESPONSIVE — practical, niet te clean */
 @media (max-width: 768px) {
-    .detail-layout { flex-direction: column; }
-    .detail-cover { max-width: 100%; }
+    header {
+        padding: 18px 5%;
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .bibliotheek-container {
+        gap: 36px 24px;
+        padding: 0 16px;
+    }
+    
+    .detail-layout {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .detail-container {
+        padding: 32px 24px;
+    }
+    
+    .controls-panel {
+        padding: 20px;
+    }
 }
