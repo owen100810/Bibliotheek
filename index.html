@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mijn Digitale Bibliotheek</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <span class="icon">📖</span>
+            <h1>Mijn Bibliotheek</h1> </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link active" data-filter="all">Alle Boeken</a></li>
+                <li><a href="#" class="nav-link" data-filter="beschikbaar">🟢 Beschikbaar</a></li>
+                <li><a href="#" class="nav-link" data-filter="uitgeleend">🔴 Uitgeleend</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="dashboard">
+        <div class="hero-text">
+            <h2>Welkom in de Collectie</h2>
+            <p>Klik op een boek voor meer informatie, recensies en audio-fragmenten.</p>
+        </div>
+        
+        <div class="controls-panel">
+            <div class="search-box">
+                <input type="text" id="searchBar" placeholder="Zoek op titel, schrijver, uitgever...">
+            </div>
+            <div class="sort-box">
+                <label for="sortSelect">Sorteer op:</label>
+                <select id="sortSelect">
+                    <option value="default">Standaard</option>
+                    <option value="titel-az">Titel (A-Z)</option>
+                    <option value="titel-za">Titel (Z-A)</option>
+                    <option value="jaar-nieuw">Jaar (Nieuw-Oud)</option>
+                </select>
+            </div>
+        </div>
+        <div class="stats-counter">Totaal getoond: <span id="visible-count">20</span> boeken</div>
+    </section>
+
+    <main class="bibliotheek-container" id="bookGrid">
+
+        <a href="detail.html?id=1" class="boek" data-status="beschikbaar" data-title="De Schaduw van de Wind" data-year="2001">
+            <div class="cover-wrapper">
+                <img src="images/de-schaduw-van-de-wind.jpg" alt="De Schaduw van de Wind">
+            </div>
+            <div class="boek-info">
+                <h2>De Schaduw van de Wind</h2>
+                <p class="schrijver">Door: Carlos Ruiz Zafón</p>
+                <p class="meta-data"><strong>Uitgever:</strong> Signatuur | <strong>Jaar:</strong> 2001</p>
+                <p class="beschrijving">In het hart van Barcelona vindt een jongen een geheimzinnig boek dat zijn leven zal veranderen.</p>
+                <div class="status-container"><span class="status-badge beschikbaar">Beschikbaar</span></div>
+            </a>
+
+        <a href="detail.html?id=2" class="boek" data-status="uitgeleend" data-title="De Middernachtbibliotheek" data-year="2020">
+            <div class="cover-wrapper">
+                <img src="images/de-middernachtbibliotheek.jpg" alt="De Middernachtbibliotheek">
+            </div>
+            <div class="boek-info">
+                <h2>De Middernachtbibliotheek</h2>
+                <p class="schrijver">Door: Matt Haig</p>
+                <p class="meta-data"><strong>Uitgever:</strong> HarperCollins | <strong>Jaar:</strong> 2020</p>
+                <p class="beschrijving">Tussen leven en dood is er een bibliotheek met boeken over alle levens die je had kunnen leiden.</p>
+                <div class="status-container"><span class="status-badge uitgeleend">Uitgeleend</span></div>
+            </a>
+
+        <a href="detail.html?id=3" class="boek" data-status="beschikbaar" data-title="Duin" data-year="1965">
+            <div class="cover-wrapper">
+                <img src="images/duin.jpg" alt="Duin">
+            </div>
+            <div class="boek-info">
+                <h2>Duin</h2>
+                <p class="schrijver">Door: Frank Herbert</p>
+                <p class="meta-data"><strong>Uitgever:</strong> Volt | <strong>Jaar:</strong> 1965</p>
+                <p class="beschrijving">Een episch sciencefiction-meesterwerk over de woestijnplaneet Arrakis en de strijd om de specie.</p>
+                <div class="status-container"><span class="status-badge beschikbaar">Beschikbaar</span></div>
+            </a>
+
+        <a href="detail.html?id=4" class="boek" data-status="beschikbaar" data-title="Project Hail Mary" data-year="2021">
+            <div class="cover-wrapper">
+                <img src="images/project-hail-mary.jpg" alt="Project Hail Mary">
+            </div>
+            <div class="boek-info">
+                <h2>Project Hail Mary</h2>
+                <p class="schrijver">Door: Andy Weir</p>
+                <p class="meta-data"><strong>Uitgever:</strong> Luitingh-Sijthoff | <strong>Jaar:</strong> 2021</p>
+                <p class="beschrijving">Een eenzame astronaut moet in zijn eentje de mensheid redden van een extinction-level event.</p>
+                <div class="status-container"><span class="status-badge beschikbaar">Beschikbaar</span></div>
+            </a>
+
+        <a href="detail.html?id=5" class="boek" data-status="uitgeleend" data-title="De Alchemist" data-year="1988">
+            <div class="cover-wrapper">
+                <img src="images/de-alchemist.jpg" alt="De Alchemist">
+            </div>
+            <div class="boek-info">
+                <h2>De Alchemist</h2>
+                <p class="schrijver">Door: Paulo Coelho</p>
+                <p class="meta-data"><strong>Uitgever:</strong> De Arbeiderspers | <strong>Jaar:</strong> 1988</p>
+                <p class="beschrijving">De magische reis van de Spaanse schaapherder Santiago op zoek naar een schat bij de piramiden.</p>
+                <div class="status-container"><span class="status-badge uitgeleend">Uitgeleend</span></div>
+            </a>
+
+        <a href="detail.html?id=6" class="boek" data-status="beschikbaar" data-title="Het Diner" data-year="2009">
+            <div class="cover-wrapper">
+                <img src="images/het-diner.jpg" alt="Het Diner">
+            </div>
+            <div class="boek-info">
+                <h2>Het Diner</h2>
+                <p class="schrijver">Door: Herman Koch</p>
+                <p class="meta-data"><strong>Uitgever:</strong> Ambo|Anthos | <strong>Jaar:</strong> 2009</p>
+                <p class="beschrijving">Twee echtparen gaan chic uit eten. Ondertussen ligt het criminele lot van hun zonen op tafel.</p>
+                <div class="status-container"><span class="status-badge beschikbaar">Beschikbaar</span></div>
+            </a>
+
+        <a href="detail.html?id=7" class="boek" data-status="beschikbaar" data-title="De Hobbit" data-year="1937">
+            <div class="cover-wrapper">
+                <img src="images/de-hobbit.jpg" alt="De Hobbit">
+            </div>
+            <div class="boek-info">
+                <h2>De Hobbit</h2>
+                <p class="schrijver">Door: J.R.R. Tolkien</p>
+                <p class="meta-data"><strong>Uitgever:</strong> Boekerij | <strong>Jaar:</strong> 1937</p>
+                <p class="beschrijving">Bilbo Balings wordt meegesleurd in een avontuur om een schat terug te winnen van de draak Smaug.</p>
+                <div class="status-container"><span class="status-badge beschikbaar">Beschikbaar</span></div>
+            </a>
+
+        <a href="detail.html?id=8" class="boek" data-status="uitgeleend" data-title="Sapiens" data-year="2011">
+            <div class="cover-wrapper">
+                <img src="images/sapiens.jpg" alt="Sapiens">
+            </div>
+            <div class="boek-info">
+                <h2>Sapiens</h2>
+                <p class="schrijver">Door: Yuval Noah Harari</p>
+                <p class="meta-data"><strong>Uitgever:</strong> Thomas Rap | <strong>Jaar:</strong> 2011</p>
+                <p class="beschrijving">Een fascinerende reis door de geschiedenis van de mensheid, van apen tot heersers van de aarde.</p>
+                <div class="status-container"><span class="status-badge uitgeleend">Uitgeleend</span></div>
+            </a>
+
+        <a href="detail.html?id=9" class="boek" data-status="beschikbaar" data-title="Grand Hotel Europa" data-year="2018">
+            <div class="cover-wrapper">
+                <img src="images/grand-hotel-europa.jpg" alt="Grand Hotel Europa">
+            </div>
+            <div class="boek-info">
+                <h2>Grand Hotel Europa</h2>
+                <p class="schrijver">Door: Ilja Leonard Pfeijffer</p>
+                <p class="meta-data"><strong>Uitgever:</strong> Das Mag | <strong>Jaar:</strong> 2018</p>
+                <p class="beschrijving">Een meeslepende roman over de identiteit van Europa en de grote impact van het massatoerisme.</p>
+                <div class="status-container"><span class="status-badge beschikbaar">Beschikbaar</span></div>
+            </a>
+
+        <a href="detail.html?id=10" class="boek" data-status="uitgeleend" data-title="Daar waar de rivierkreeften zingen" data-year="2018">
+            <div class="cover-wrapper">
+                <img src="images/daar-waar-de-rivierkreeften-zingen.jpg" alt="Daar waar de rivierkreeften zingen">
+            </div>
+            <div class="boek-info">
+                <h2>Daar waar de rivierkreeften zingen</h2>
+                <p class="schrijver">Door: Delia Owens</p>
+                <p class="meta-data"><strong>Uitgever:</strong> The House of Books | <strong>Jaar:</strong> 2018</p>
+                <p class="beschrijving">Het moerasmeisje Kya groeit alleen op. Als er een man dood wordt gevonden, is zij de hoofdverdachte.</p>
+                <div class="status-container"><span class="status-badge uitgeleend">Uitgeleend</span></div>
+            </a>
+
+        <a href="detail.html?id=11" class="boek" data-status="beschikbaar" data-title="1984" data-year="1949">
+            <div class="cover-wrapper">
+                <img src="images/1984.jpg" alt="1984">
+            </div>
+            <div class="boek-info">
+                <h2>1984</h2>
+                <p class="schrijver">Door: George Orwell</p>
+                <p class="meta-data"><strong>Uitgever:</strong> De Arbeiderspers | <strong>Jaar:</strong> 1949</p>
+                <p class="beschrijving">De wereldberoemde dystopie over Big Brother, totale surveillance en de manipulatie van de waarheid.</p>
+                <div class="status-container"><span class="status-badge beschikbaar">Beschikbaar</span></div>
+            </a>
+
+        <a href="detail.html?id=12" class="boek" data-status="beschikbaar" data-title="Harry Potter en de Steen der Wijzen" data-year="1997">
+            <div class="cover-wrapper">
+                <img src="images/harry-potter-steen-der-wijzen.jpg" alt="Harry Potter">
+            </div>
+            <div class="boek-info">
+                <h2>Harry Potter en de Steen der Wijzen</h2>
+                <p class="schrijver">Door: J.K. Rowling</p>
+                <p class="meta-data"><strong>Uitgever:</strong> De Harmonie | <strong>Jaar:</strong> 1997</p>
+                <p class="beschrijving">De jonge weesjongen Harry ontdekt dat hij een tovenaar is en mag studeren aan Zweinstein.</p>
+                <div class="status-container"><span class="status-badge beschikbaar">Beschikbaar</span></div>
+            </a>
+
+        <a href="detail.html?id=13" class="boek" data-status="uitgeleend" data-title="De Da Vinci Code" data-year="2003">
+            <div class="cover-wrapper">
+                <img src="images/de-da-vinci-code.jpg" alt="De Da Vinci Code">
+            </div>
+            <div class="boek-info">
+                <h2>De Da Vinci Code</h2>
+                <p class="schrijver">Door: Dan Brown</p>
+                <p class="meta-data"><strong>Uitgever:</strong> Luitingh | <strong>Jaar:</strong> 2003</p>
+                <p class="beschrijving">Robert Langdon moet een moord in het Louvre oplossen en stuit op een eeuwenoud geheim genootschap.</p>
+                <div class="status-container"><span class="status-badge uitgeleend">Uitgeleend</span></div>
+            </a>
+
+        <a href="detail.html?id=14" class="boek" data-status="beschikbaar" data-title="De Zeven Zussen" data-year="2014">
+            <div class="cover-wrapper">
+                <img src="images/de-zeven-zussen.jpg" alt="De Zeven Zussen">
+            </div>
+            <div class="boek-info">
+                <h2>De Zeven Zussen</h2>
+                <p class="schrijver">Door: Lucinda Riley</p>
+                <p class="meta-data"><strong>Uitgever:</strong> Xander Uitgevers | <strong>Jaar:</strong> 2014</p>
+                <p class="beschrijving">Na de dood van hun adoptievader komen zussen samen om puzzels over hun afkomst op te lossen.</p>
+                <div class="status-container"><span class="status-badge beschikbaar">Beschikbaar</span></div>
+            </a>
+
+        <a href="detail.html?id=15" class="boek" data-status="beschikbaar" data-title="De Waarheid over de zaak Harry Quebert" data-year="2012">
+            <div class="cover-wrapper">
+                <img src="images/de-waarheid-over-de-zaak-harry-quebert.jpg" alt="Harry Quebert">
+            </div>
+            <div class="boek-info">
+                <h2>De Waarheid over de zaak Harry Quebert</h2>
+                <p class="schrijver">Door: Joël Dicker</p>
+                <p class="meta-data"><strong>Uitgever:</strong> De Bezige Bij | <strong>Jaar:</strong> 2012</p>
+                <p class="beschrijving">Een jonge schrijver probeert de onschuld te bewijzen van zijn mentor, die beschuldigd wordt van moord.</p>
+                <div class="status-container"><span class="status-badge beschikbaar">Beschikbaar</span></div>
+            </a>
+
+        <a href="detail.html?id=16" class="boek" data-status="uitgeleend" data-title="De Grijze Jager" data-year="2004">
+            <div class="cover-wrapper">
+                <img src="images/de-grijze-jager.jpg" alt="De Grijze Jager">
+            </div>
+            <div class="boek-info">
+                <h2>De Grijze Jager: Ruïnes van Gorlan</h2>
+                <p class="schrijver">Door: John Flanagan</p>
+                <p class="meta-data"><strong>Uitgever:</strong> Gottmer | <strong>Jaar:</strong> 2004</p>
+                <p class="beschrijving">Will is klein voor zijn leeftijd, maar wordt gekozen als leerling van de mysterieuze Grijze Jagers.</p>
+                <div class="status-container"><span class="status-badge uitgeleend">Uitgeleend</span></div>
+            </a>
+
+        <a href="detail.html?id=17" class="boek" data-status="beschikbaar" data-title="Het Parfum" data-year="1985">
+            <div class="cover-wrapper">
+                <img src="images/het-parfum.jpg" alt="Het Parfum">
+            </div>
+            <div class="boek-info">
+                <h2>Het Parfum</h2>
+                <p class="schrijver">Door: Patrick Süskind</p>
+                <p class="meta-data"><strong>Uitgever:</strong> Prometheus | <strong>Jaar:</strong> 1985</p>
+                <p class="beschrijving">Jean-Baptiste Grenouille heeft een fenomenale reukzin. Zijn obsessie voor het ultieme parfum drijft hem tot moord.</p>
+                <div class="status-container"><span class="status-badge beschikbaar">Beschikbaar</span></div>
+            </a>
+
+        <a href="detail.html?id=18" class="boek" data-status="beschikbaar" data-title="De Broncode" data-year="2015">
+            <div class="cover-wrapper">
+                <img src="images/de-broncode.jpg" alt="De Broncode">
+            </div>
+            <div class="boek-info">
+                <h2>De Broncode</h2>
+                <p class="schrijver">Door: Mark Elsberg</p>
+                <p class="meta-data"><strong>Uitgever:</strong> Meulenhoff | <strong>Jaar:</strong> 2015</p>
+                <p class="beschrijving">Een hypermoderne technothriller over kunstmatige intelligentie die de wereldwijde systemen overneemt.</p>
+                <div class="status-container"><span class="status-badge beschikbaar">Beschikbaar</span></div>
+            </a>
+
+        <a href="detail.html?id=19" class="boek" data-status="uitgeleend" data-title="Ik kom hier nog op terug" data-year="2024">
+            <div class="cover-wrapper">
+                <img src="images/ik-kom-hier-nog-op-terug.jpg" alt="Ik kom hier nog op terug">
+            </div>
+            <div class="boek-info">
+                <h2>Ik kom hier nog op terug</h2>
+                <p class="schrijver">Door: Rob van Essen</p>
+                <p class="meta-data"><strong>Uitgever:</strong> Nijgh & Van Ditmar | <strong>Jaar:</strong> 2024</p>
+                <p class="beschrijving">Een man krijgt de kans om gemaakte fouten uit zijn studententijd op magische wijze te herstellen.</p>
+                <div class="status-container"><span class="status-badge uitgeleend">Uitgeleend</span></div>
+            </a>
+
+        <a href="detail.html?id=20" class="boek" data-status="beschikbaar" data-title="Schaduw van de Nacht" data-year="2011">
+            <div class="cover-wrapper">
+                <img src="images/schaduw-van-de-nacht.jpg" alt="Schaduw van de Nacht">
+            </div>
+            <div class="boek-info">
+                <h2>Schaduw van de Nacht</h2>
+                <p class="schrijver">Door: Deborah Harkness</p>
+                <p class="meta-data"><strong>Uitgever:</strong> De Fontein | <strong>Jaar:</strong> 2011</p>
+                <p class="beschrijving">Wanneer een historica (en onwillige heks) een betoverd manuscript opent, ontwaakt een oude strijd.</p>
+                <div class="status-container"><span class="status-badge beschikbaar">Beschikbaar</span></div>
+            </a>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

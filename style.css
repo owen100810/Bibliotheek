@@ -1,0 +1,211 @@
+/* ROOT VARIABELEN */
+:root {
+    --bg-dark: #090d16;
+    --bg-card: #131a26;
+    --bg-control: #1b2433;
+    --text-primary: #f1f5f9;
+    --text-muted: #94a3b8;
+    --accent-blue: #38bdf8;
+    --accent-purple: #a855f7;
+    --color-green: #22c55e;
+    --color-red: #ef4444;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* KOPPELINGSTYLING (Zorgt dat kaarten er niet uitzien als blauwe hyperlinks) */
+a.boek {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* STICKY NAVIGATIEBALK [cite: 57] */
+header {
+    background: rgba(19, 26, 38, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 20px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav ul { display: flex; list-style: none; gap: 10px; }
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 10px 18px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+nav a:hover, nav a.active {
+    color: #ffffff;
+    background: rgba(56, 189, 248, 0.12);
+}
+
+/* DASHBOARD & BEDIENING */
+.dashboard { max-width: 1400px; margin: 40px auto; padding: 0 20px; }
+.hero-text h2 { font-size: 2.3rem; font-weight: 800; margin-bottom: 8px; }
+.hero-text p { color: var(--text-muted); margin-bottom: 25px; }
+
+.controls-panel {
+    background-color: var(--bg-card);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex; gap: 20px; flex-wrap: wrap;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+}
+.search-box { flex: 2; min-width: 280px; }
+.search-box input {
+    width: 100%; padding: 14px 20px; border-radius: 14px;
+    border: 2px solid var(--bg-control); background-color: var(--bg-dark);
+    color: white; font-size: 1rem; outline: none;
+}
+.search-box input:focus { border-color: var(--accent-blue); }
+
+.sort-box { display: flex; align-items: center; gap: 10px; }
+.sort-box select {
+    padding: 14px; border-radius: 14px; background: var(--bg-dark);
+    color: white; border: 2px solid var(--bg-control); cursor: pointer;
+}
+
+.stats-counter { margin-top: 15px; font-size: 0.85rem; color: var(--text-muted); }
+.stats-counter span { color: var(--accent-blue); font-weight: 700; }
+
+/* GRID INDELING [cite: 54] */
+.bibliotheek-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 35px; max-width: 1400px; margin: 0 auto; padding: 0 20px;
+}
+
+/* BOEK KAART DESIGN [cite: 35] */
+.boek {
+    background-color: var(--bg-card);
+    border-radius: 24px; overflow: hidden;
+    display: flex; flex-direction: column;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* HOVER EFFECTEN [cite: 55] */
+.boek:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 40px rgba(56, 189, 248, 0.15);
+    border-color: rgba(56, 189, 248, 0.3);
+}
+
+.cover-wrapper { width: 100%; height: 380px; overflow: hidden; }
+.boek img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.boek:hover img { transform: scale(1.05); }
+
+.boek-info { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
+.boek-info h2 { font-size: 1.25rem; color: white; margin-bottom: 4px; min-height: 54px; }
+
+.schrijver {
+    font-size: 0.95rem;
+    color: var(--accent-blue);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.meta-data { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; }
+.beschrijving { font-size: 0.9rem; color: #cbd5e1; margin-bottom: 20px; flex-grow: 1; }
+
+/* VERPLICHTE STATUS BADGES EN KLEUREN [cite: 12, 13, 19, 20, 27] */
+.status-badge {
+    display: block; text-align: center; padding: 10px;
+    border-radius: 12px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;
+}
+.beschikbaar { color: var(--color-green); background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.2); }
+.uitgeleend { color: var(--color-red); background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); }
+
+/* ========================================== */
+/* STYLING SPECIFIEK VOOR DE DETAILPAGINA     */
+/* ========================================== */
+.detail-page-body {
+    padding: 50px 20px;
+    display: flex; justify-content: center;
+}
+
+.detail-container {
+    width: 100%; max-width: 1100px;
+    background-color: var(--bg-card);
+    padding: 40px; border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.back-btn {
+    display: inline-block; text-decoration: none;
+    color: var(--accent-blue); font-weight: 600;
+    margin-bottom: 30px; transition: transform 0.2s ease;
+}
+.back-btn:hover { transform: translateX(-5px); }
+
+.detail-layout { display: flex; gap: 50px; flex-wrap: wrap; }
+.detail-cover { flex: 1; min-width: 300px; max-width: 400px; }
+.detail-cover img { width: 100%; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
+
+.detail-info { flex: 2; min-width: 300px; }
+.detail-info h1 { font-size: 2.5rem; margin-bottom: 5px; color: white; }
+.detail-author { font-size: 1.3rem; color: var(--accent-blue); font-weight: 600; margin-bottom: 25px; }
+
+.detail-meta {
+    background-color: var(--bg-dark); padding: 20px;
+    border-radius: 16px; margin-bottom: 30px;
+    display: flex; gap: 30px; flex-wrap: wrap; align-items: center;
+}
+.detail-meta p { font-size: 0.95rem; color: var(--text-muted); }
+.detail-meta strong { color: white; }
+
+.detail-section {
+    margin-bottom: 35px; border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 25px;
+}
+.detail-section h3 { font-size: 1.2rem; color: white; margin-bottom: 12px; }
+.detail-section p { color: #cbd5e1; font-size: 1rem; line-net: 1.7; }
+
+/* AUDIO SPELER STYLING */
+audio { width: 100%; max-width: 500px; margin-top: 10px; filter: invert(0.9) hue-rotate(180deg); }
+
+/* RECENSIE GEBIED */
+.reviews-list { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
+.review-item {
+    background-color: var(--bg-dark); padding: 15px 20px;
+    border-radius: 14px; font-style: italic; font-size: 0.95rem;
+    border-left: 4px solid var(--accent-purple);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .detail-layout { flex-direction: column; }
+    .detail-cover { max-width: 100%; }
+}
