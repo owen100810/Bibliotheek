@@ -46,6 +46,8 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.logo-area { display: flex; align-items: center; gap: 10px; }
+
 header h1 {
     font-size: 1.5rem;
     font-weight: 800;
@@ -191,7 +193,7 @@ nav a:hover, nav a.active {
     padding-bottom: 25px;
 }
 .detail-section h3 { font-size: 1.2rem; color: white; margin-bottom: 12px; }
-.detail-section p { color: #cbd5e1; font-size: 1rem; line-net: 1.7; }
+.detail-section p { color: #cbd5e1; font-size: 1rem; line-height: 1.7; }
 
 /* AUDIO SPELER STYLING */
 audio { width: 100%; max-width: 500px; margin-top: 10px; filter: invert(0.9) hue-rotate(180deg); }
